@@ -1,35 +1,40 @@
+import 'package:fenmo/Screens/buffer_page.dart';
+import 'package:fenmo/Screens/search_screen.dart';
+import 'package:fenmo/Screens/home_page_body.dart';
 import 'package:flutter/material.dart';
-import 'body.dart';
+import 'Screens/explore_screen.dart';
+
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
+  MyHomePage({Key? key }) : super(key: key);
+  static String id = 'home_page';
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  int _currentIndex = 2;
+  final List pages = [
+    HomePageBody(),
+    SearchScreen(),
+    BufferPage(),
+    BufferPage(),
+    BufferPage(),
+  ];
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: buildBottomNavigationBar(),
       appBar: buildAppBar(),
-      body: Body(),
+      body: pages[_currentIndex],
     );
   }
 
+
+
   AppBar buildAppBar() {
     return AppBar(
+      backgroundColor: Colors.blueGrey.shade800,
       leading: GestureDetector(
         onTap: () {},
         child: Icon(Icons.menu),
@@ -43,19 +48,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ],
-      title: Text(widget.title),
+      title: Text('hello Hritik!'),
     );
   }
 
   BottomNavigationBar buildBottomNavigationBar() {
     return BottomNavigationBar(
+      showSelectedLabels: true,
       currentIndex: _currentIndex,
       type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
-            label: 'home',
-            backgroundColor: Colors.blue),
+          icon: Icon(Icons.home_rounded),
+          label: 'home',
+          backgroundColor: Colors.blue),
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
           label: 'search',
@@ -80,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       onTap: (index) {
         setState(() {
           _currentIndex = index;
+          // Navigator.pushNamed(context, pages[_currentIndex]);
         });
       },
     );

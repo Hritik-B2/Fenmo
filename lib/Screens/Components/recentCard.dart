@@ -17,24 +17,29 @@ class RecentCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      child: ListTile(
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image(
-            fit: BoxFit.contain,
-            image: AssetImage('images/steps.jpg'),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.pushNamed(context, '/second');
+        },
+        child: ListTile(
+          leading: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image(
+              fit: BoxFit.contain,
+              image: AssetImage('images/steps.jpg'),
+            ),
           ),
+          title: Text(
+            'Book Summary - ',
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+          ),
+          subtitle: Text(
+            'The Atomic Habits',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w600),
+          ),
+          trailing: CircularProgressBar(percent: percent),
         ),
-        title: Text(
-          'Book Summary - ',
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-        ),
-        subtitle: Text(
-          'The Atomic Habits',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w600),
-        ),
-        trailing: CircularProgressBar(percent: percent),
       ),
     );
   }

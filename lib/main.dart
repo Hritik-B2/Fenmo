@@ -1,7 +1,8 @@
 
 import 'package:fenmo/Screens/buffer_page.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'Screens/Summary.dart';
+import 'body.dart';
 
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
       routes: {
-        '/first': (context) => const BufferPage()
+        '/first': (context) => const BufferPage(),
+        '/second': (context) => const Summary(),
       },
 
     );

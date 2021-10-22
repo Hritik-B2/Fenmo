@@ -1,8 +1,8 @@
 import 'package:fenmo/Screens/buffer_page.dart';
 import 'package:fenmo/Screens/search_screen.dart';
-import 'package:fenmo/Screens/home_page_body.dart';
+import 'package:fenmo/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'Screens/explore_screen.dart';
+
 
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List pages = [
     HomePageBody(),
     SearchScreen(),
-    BufferPage(),
+    SearchScreen(),
     BufferPage(),
     BufferPage(),
   ];

@@ -24,7 +24,11 @@ class SlidingImages extends StatelessWidget {
         ),
         itemCount: urImage.length,
         itemBuilder: (context, index, realIndex) {
-          return buildImage(urImage[index], index);
+          return GestureDetector(
+              onTap: (){
+                showDialogFunc(context, urImage[index]);
+              },
+              child: buildImage(urImage[index], index));
         },
       ),
     );
@@ -39,3 +43,24 @@ Widget buildImage(String urImage, int index) => Container(
   color: Colors.grey,
   child: Image(image: AssetImage(urImage), fit: BoxFit.fill,),
 );
+
+showDialogFunc(context, urImage){
+  return showDialog(
+    context: context,
+    builder: (context){
+      return Center(
+        child: Material(
+          type: MaterialType.transparency,
+          child: Container(
+            width: double.infinity,
+
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Image.asset(urImage, width: 200, height: 200),
+            ),
+          ),
+        )
+      );
+    }
+  );
+}

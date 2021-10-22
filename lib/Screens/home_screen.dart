@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'Components/categoriesSection.dart';
+import 'Components/Categories/categoriesSection.dart';
 import 'Components/Creators/creatorsSection.dart';
 import 'Components/sliding_images.dart';
 import 'Components/title.dart';
@@ -31,7 +31,7 @@ class HomePageBody extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
